@@ -17,3 +17,13 @@ const PORT = 5000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+const db = require('./db');
+app.get('/test-db', (req, res) => {
+    db.query('SELECT 1', (err, result) => {
+        if (err) {
+            return res.status(500).send('Database Error');
+        }
+
+        res.send('Database Connected Successfully!');
+    });
+});
