@@ -3,11 +3,12 @@
 <head>
     <title>Blood Donation Portal</title>
     <link rel="stylesheet" href="styles.css">
+     <script src="script.js" defer></script>
 </head>
 <body>
-    < script src="script.js"></script>
 <header>
     <h1>Blood Donation Portal</h1>
+   
     <nav>
         <a href="#">Home</a>
         <a href="#">Find Blood</a>
@@ -86,3 +87,28 @@
                 <option>B+</option><option>B-</option>
                 <option>O+</option><option>O-</option>
                 <option>AB+</option><option>AB-</option>
+                </select>
+            <label>City</label>
+            <input type="text" placeholder="Enter city">
+            <button type="submit">Search Blood</button>
+        </form>
+    </section>
+
+    <section class="login-section">
+        <h2>Login</h2>
+        <p>Login to access your account</p>
+        <form>
+            <label>Email</label>
+            <input type="email" placeholder="Enter your email">
+            <label>Password</label>
+            <input type="password" placeholder="Enter your password">
+            <button type="submit">Login</button>
+        </form>
+        <p class="register-text">
+            Don't have an account?
+            <a href="#">Register Now</a>
+        </p>
+    </section>
+</main>
+</body>
+</html>
