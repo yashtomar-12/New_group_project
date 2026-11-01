@@ -107,3 +107,46 @@ document.querySelectorAll("nav a").forEach(function(link) {
 window.addEventListener("load", function() {
     console.log("Welcome to Blood Donation Portal!");
 });
+
+donorForm = document.getElementById("donorForm");
+
+donorForm.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+    const donorData = {
+        full_name: document.getElementById("full_name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        age: document.getElementById("age").value,
+        blood_group: document.getElementById("blood_group").value,
+        city: document.getElementById("city").value
+    };
+
+    try {
+        const response = await fetch(
+            "http://localhost:5000/register-donor",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(donorData)
+            }
+        );
+
+        const result = await response.json();
+
+        if (response.ok) {
+            alert("Donor Registered Successfully!");
+            donorForm.reset();
+        } else {
+            alert(result.message || "Registration Failed!");
+        }
+
+    } catch (error) {
+        console.log(error);
+        alert("Server connection failed!");
+    }
+
+});
